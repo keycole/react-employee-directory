@@ -3,8 +3,9 @@ import './style.css';
 import Img from './images/placeholder_alex-harvey-y0I85D5QKvs-unsplash.jpg';
 
 function Table() {
-    return (
+        return (
         <table>
+            <tbody>
             <tr>
                 <th>Face to a Name</th>
                 <th>First Name</th>
@@ -30,8 +31,9 @@ function Table() {
                     Bestplace, NY 10000
                 </td>
             </tr>
+            </tbody>
         </table>
-    )
+    );
 };
 
 export default Table;
