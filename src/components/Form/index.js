@@ -1,12 +1,19 @@
 import React from 'react';
 import './style.css';
 
-function Form() {
+function Form(props) {
     return (
         <form className="employeeSearch">
             <label className="employeeSearch">Search for your colleague:&nbsp;</label>
-            <input className="employeeSearch" placeholder="Name Here"/>
-            <button className="employeeSearch">Submit</button>
+            <input 
+                 onChange={props.handleInputChange}
+                 value={props.value}
+                 name={props.name}
+                type="text"
+                className="employeeSearch" placeholder="Name Here" />
+            <button className="employeeSearch"
+                onClick={props.handleFormSubmit}
+                >Submit</button>
         </form>
     );
 }

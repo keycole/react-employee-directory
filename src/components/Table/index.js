@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
-import Img from './images/placeholder_alex-harvey-y0I85D5QKvs-unsplash.jpg';
 
-function Table() {
+function Table(props) {
+    console.log("The props inside Table = ", props);
         return (
         <table>
             <tbody>
@@ -14,23 +14,25 @@ function Table() {
                 <th>Phone Number</th>
                 <th>Address</th>
             </tr>
-            <tr>
+            {props.results.map(result => (
+                <tr id={result.key}>
                 <td>
                     <img 
-                        src={Img}
-                        alt="cool lady placeholder"
+                        src={result.picture.large}
+                        alt="{result.name.first + ' ' + result.name.last}"
                         width="50px"
                     />
                 </td>
-                <td>Jane</td>
-                <td>Doe</td>
-                <td>jane@email.com</td>
-                <td>(123) 456 - 7890</td>
+                <td>{result.name.first}</td>
+                <td>{result.name.last}</td>
+                <td>{result.email}</td>
+                <td>{result.phone}</td>
                 <td>
-                    10 Bluebird Lane<br />
-                    Bestplace, NY 10000
+                    {result.location.street.number + ' ' + result.location.street.name}<br/>
+                    {result.location.city + ', ' + result.location.state + ' ' + result.location.postcode}
                 </td>
             </tr>
+            ))}
             </tbody>
         </table>
     );

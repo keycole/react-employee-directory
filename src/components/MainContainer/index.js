@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from "axios";
-//import API from '../../utils/API';
 import Header from '../Header';
 import Form from '../Form';
 import Table from '../Table';
 
 class MainContainer extends React.Component {
     state = {
+        name:"",
         results: []
     }
 
@@ -18,16 +18,43 @@ class MainContainer extends React.Component {
             .catch(err => console.log(err)) 
     }
 
+    // refineResults = () => {
+    //     this.setState({
+    //         results: (this.state.results.map(result => {
+    //             ((result.name.first).includes(this.state.name) || (result.name.last).includes(this.state.name))  
+    //         })
+    //     )})
+    //     console.log("the results after refineResults map are ", this.state.results); 
+    // }
+
     componentDidMount() {
         this.generateUsers();
     }
+
+    handleInputChange = event => {
+        const name = event.target.name;
+        const value = (event.target.value).trim();
+
+        this.setState({
+          [name]: value
+        });
+        console.log("this.state after handleInputChange = ", this.state);
+      };
+    
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.refineResults(this.state.name);
+        console.log("The state after handleFormSubmit = ", this.state)
+      };
 
     render(){
         return (
             <div>
                 <Header />
-                <Form />
-                <Table />
+                <Form   name={this.state.name}
+                        handleFormSubmit={this.handleFormSubmit}
+                        handleInputChange={this.handleInputChange} />
+                <Table results={this.state.results}/>
             </div>
         );
     }
