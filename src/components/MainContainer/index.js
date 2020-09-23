@@ -20,8 +20,8 @@ class MainContainer extends React.Component {
 
     // refineResults = () => {
     //     this.setState({
-    //         results: (this.state.results.map(result => {
-    //             ((result.name.first).includes(this.state.name) || (result.name.last).includes(this.state.name))  
+    //         results: (this.state.results.filter((item) => {
+    //             return (item.name.first.contains(this.state.name) || item.name.first.contains(this.state.last))  
     //         })
     //     )})
     //     console.log("the results after refineResults map are ", this.state.results); 
@@ -35,9 +35,18 @@ class MainContainer extends React.Component {
         const name = event.target.name;
         const value = (event.target.value).trim();
 
+        // let filteredResults = this.state.results.filter(item => {
+        //     console.log("Item.name.first = ", item.name.first);
+        //     console.log("Item.name.last = ", item.name.last);
+        //     return (item.name).includes(name)
+        // });
+        // console.log(filteredResults);
+
         this.setState({
-          [name]: value
+          [name]: value,
+        //   results: filteredResults
         });
+
         console.log("this.state after handleInputChange = ", this.state);
       };
     
@@ -45,7 +54,7 @@ class MainContainer extends React.Component {
         event.preventDefault();
         this.refineResults(this.state.name);
         console.log("The state after handleFormSubmit = ", this.state)
-      };
+      }
 
     render(){
         return (
