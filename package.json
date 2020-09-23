@@ -1,5 +1,6 @@
 {
   "name": "react-employee-directory",
+  "homepage": "https://keycole.github.io/react-employee-directory",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
