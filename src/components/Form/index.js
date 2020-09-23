@@ -8,7 +8,7 @@ function Form(props) {
             <input 
                  onChange={props.handleInputChange}
                  value={props.value}
-                 name={props.name}
+                 name="name"
                 type="text"
                 className="employeeSearch" placeholder="Name Here" />
             <button className="employeeSearch"

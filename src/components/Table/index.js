@@ -14,8 +14,8 @@ function Table(props) {
                 <th>Phone Number</th>
                 <th>Address</th>
             </tr>
-            {props.results.map(result => (
-                <tr id={result.key}>
+            {props.results.map((result, i) => (
+                <tr key={i}>
                 <td>
                     <img 
                         src={result.picture.large}
