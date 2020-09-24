@@ -1,18 +1,42 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:nicole.graiff@gmail.com)
+
 # React Employee Directory 
 
+## Description
+An employee directory that can be viewed all at once, providing quick access to employee information.
 
-### `npm start`
+**Deployed Application:** https://keycole.github.io/react-employee-directory/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Table of Contents
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[Demo](#demo) &nbsp;&nbsp;| &nbsp;&nbsp; [Installation](#installation) &nbsp;&nbsp; | &nbsp;&nbsp; [Usage](#usage) &nbsp;&nbsp; | &nbsp;&nbsp; [Contributing](#contributing) &nbsp;&nbsp; | &nbsp;&nbsp; [License](#license) &nbsp;&nbsp; |  &nbsp;&nbsp; [Questions](#questions)
 
-### Deployment
+## Demo
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+**Link to demo video:** To follow
 
-### `npm run build` fails to minify
+- DEMO GIF to follow.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Installation
+Under construction
+
+## Usage
+
+- This application can be used to search your employee (or personal) address book.
+- Search by using the search field.
+- Under construction: Search by sorting by last name.
+
+## Contributing
+
+- Fork the repository
+- Navigate to the folder containing app.js in the terminal and enter ```npm install``` to download dependencies
+- Add your stamp to the program's functionality and be sure to reach out with your update/improvements. I would like to see what you've done! 
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Questions
+
+- Please click the "Ask me anything" badge at the top of the page if you have any questions about this application.
