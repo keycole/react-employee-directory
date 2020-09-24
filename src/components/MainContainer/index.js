@@ -10,10 +10,13 @@ class MainContainer extends React.Component {
         results: []
     }
 
+    generatedEmployees = [];
+
     generateUsers = () => {
             API.search()
             .then(res => {this.setState({results: res.data.results})
-                console.log("This state = ", this.state);
+                this.generatedEmployees = this.state.results;
+                console.log("This generatedEmployees = ", this.generatedEmployees);
             })
             .catch(err => console.log(err)) 
     }
@@ -24,8 +27,8 @@ class MainContainer extends React.Component {
             results: (this.state.results.filter((item) => {
                 return ((item.name.first).includes(this.state.name) || (item.name.last.includes(this.state.name)))  
             })
-        )})
-        console.log("the results after refineResults map are ", this.state.results); 
+        )}) 
+        console.log("the results after refineResults map are ", this.state.results);
     }
 
     componentDidMount() {
@@ -36,18 +39,13 @@ class MainContainer extends React.Component {
         const name = event.target.name;
         const value = (event.target.value).trim();
 
-        // let filteredResults = this.state.results.filter(item => {
-        //     console.log("Item.name.first = ", item.name.first);
-        //     console.log("Item.name.last = ", item.name.last);
-        //     return (item.name.first || item.name.last).includes(name);
-        // });
-        // console.log(filteredResults);
-
         this.setState({
           [name]: value,
-        //   results: filteredResults
+          results: (this.state.results.filter((item) => {
+            return ((item.name.first).includes(this.state.name) || (item.name.last.includes(this.state.name)))  
+                })
+            )
         });
-
         console.log("this.state after handleInputChange = ", this.state);
       };
     
@@ -65,6 +63,7 @@ class MainContainer extends React.Component {
                         handleFormSubmit={this.handleFormSubmit}
                         handleInputChange={this.handleInputChange} />
                 <Table results={this.state.results}/>
+                {console.log("The state inside the render return is ", this.state)}
             </div>
         );
     }
