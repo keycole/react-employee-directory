@@ -14,7 +14,15 @@ class MainContainer extends React.Component {
 
     generateUsers = () => {
             API.search()
-            .then(res => {this.setState({results: res.data.results})
+            .then(res => {
+                //Sort the returned list alphabetically by last name
+                let firstSort = (res.data.results).sort(function(a, b){
+                    if(a.name.last < b.name.last) { return -1; }
+                    if(a.name.last > b.name.last) { return 1; }
+                    return 0;
+                })
+                //Set the state results to equal the sorted list
+                this.setState({results: firstSort})
                 this.generatedEmployees = this.state.results;
                 console.log("This generatedEmployees = ", this.generatedEmployees);
             })
