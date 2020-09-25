@@ -7,7 +7,8 @@ import API from '../../utils/API';
 class MainContainer extends React.Component {
     state = {
         name:"",
-        results: []
+        results: [],
+        sort: "ascend"
     }
 
     generatedEmployees = [];
@@ -29,15 +30,19 @@ class MainContainer extends React.Component {
             .catch(err => console.log(err)) 
     }
 
-    refineResults = () => {
-        this.setState({
-            ...this.state,
-            results: (this.state.results.filter((item) => {
-                return ((item.name.first).includes(this.state.name) || (item.name.last.includes(this.state.name)))  
-            })
-        )}) 
-        console.log("the results after refineResults map are ", this.state.results);
-    }
+    // refineResults = () => {
+    //     this.setState({
+    //         ...this.state,
+    //         results: (this.state.results.filter((item) => {
+    //             return ((item.name.first).includes(this.state.name) || (item.name.last.includes(this.state.name)))  
+    //         })
+    //     )}) 
+    //     console.log("the results after refineResults map are ", this.state.results);
+    // }
+
+    // sortChange = event => {
+    //     const sort = event.target.sort;
+    // }
 
     componentDidMount() {
         this.generateUsers();
@@ -49,10 +54,10 @@ class MainContainer extends React.Component {
 
         this.setState({
           [name]: value,
-          results: (this.state.results.filter((item) => {
-            return ((item.name.first).includes(this.state.name) || (item.name.last.includes(this.state.name)))  
-                })
-            )
+        //   results: (this.state.results.filter((item) => {
+        //     return ((item.name.first).includes(this.state.name) || (item.name.last.includes(this.state.name)))  
+        //         })
+        //     )
         });
         console.log("this.state after handleInputChange = ", this.state);
       };
@@ -70,7 +75,7 @@ class MainContainer extends React.Component {
                 <Form   name={this.state.name}
                         handleFormSubmit={this.handleFormSubmit}
                         handleInputChange={this.handleInputChange} />
-                <Table results={this.state.results}/>
+                <Table name={this.state.name} results={this.state.results} sort={this.state.sort}/>
                 {console.log("The state inside the render return is ", this.state)}
             </div>
         );
