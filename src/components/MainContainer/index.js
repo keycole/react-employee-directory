@@ -27,7 +27,13 @@ class MainContainer extends React.Component {
     }
     
     sortToggle = () => {
-        this.state.sort === "ascend" ? this.setState({...this.state, sort: "descend"}) : this.setState({...this.state, sort: "ascend"})
+        if(this.state.sort === "ascend"){
+            this.descendSort();
+            this.setState({...this.state, sort: "descend"})
+        } else {
+            this.ascendSort();
+            this.setState({...this.state, sort: "ascend"})
+        }
     }
 
     ascendSort = () => {
@@ -46,10 +52,6 @@ class MainContainer extends React.Component {
             this.setState({...this.state, results: descendResults})
         }
 
-    employeeSort = () => {
-        this.state.sort === "ascend" ? this.ascendSort() : this.descendSort()
-    }
-
     //On load call the generateUsers function
     componentDidMount() {
         this.generateUsers();
@@ -64,17 +66,11 @@ class MainContainer extends React.Component {
         });
         console.log("this.state after handleInputChange = ", this.state);
       };
-    
-    handleFormSubmit = event => {
-        event.preventDefault();
-        this.refineResults(this.state.name);
-        console.log("The state after handleFormSubmit = ", this.state)
-      }
 
     handleSort = event => {
         event.preventDefault();
-        this.sortToggle()
-        .then(() => this.employeeSort())
+        console.log("Sort = ", this.state.sort);
+        this.sortToggle(this.state.sort)
     }
 
     render(){
@@ -84,7 +80,10 @@ class MainContainer extends React.Component {
                 <Form   name={this.state.name}
                         handleFormSubmit={this.handleFormSubmit}
                         handleInputChange={this.handleInputChange} />
-                <Table name={this.state.name} results={this.state.results} sort={this.state.sort} handleSort={this.handleSort}/>
+                <Table  name={this.state.name} 
+                        results={this.state.results} 
+                        sort={this.state.sort} 
+                        handleSort={this.handleSort}/>
                 {console.log("The state inside the render return is ", this.state)}
             </div>
         );
