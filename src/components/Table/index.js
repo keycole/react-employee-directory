@@ -4,8 +4,15 @@ import './style.css';
 function Table(props) {
     console.log("The props inside Table = ", props);
     function checkName(employee) {
-        return (employee.name.first).startsWith(props.name) || (employee.name.last).startsWith(props.name) 
+        return ((employee.name.first).toLowerCase()).startsWith(props.name) || ((employee.name.last).toLowerCase()).startsWith(props.name) 
       }
+    
+    console.log("The props.sort inside table = ", props.sort);
+
+    // function innerSort() {
+    //     console.log("innerSort function has been entered");
+    //     props.handleSort();
+    // }
 
         return (
         <table>
@@ -14,7 +21,7 @@ function Table(props) {
                 <th>Face to a Name</th>
                 <th>First Name</th>
                 <th >Last Name &nbsp;&nbsp;
-                    {props.sort === "ascend" ? <i className="fas fa-arrow-circle-up"></i> :  <i className="fas fa-arrow-circle-down"></i>}
+                    {props.sort === "ascend" ? <i className="fas fa-arrow-circle-down" onClick={props.handleSort}></i> :  <i className="fas fa-arrow-circle-up" onClick={props.handleSort}></i>}
                 </th>
                 <th>Email</th>
                 <th>Phone Number</th>

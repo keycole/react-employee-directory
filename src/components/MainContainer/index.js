@@ -10,9 +10,7 @@ class MainContainer extends React.Component {
         results: [],
         sort: "ascend"
     }
-
-    generatedEmployees = [];
-
+    
     generateUsers = () => {
             API.search()
             .then(res => {
@@ -24,40 +22,45 @@ class MainContainer extends React.Component {
                 })
                 //Set the state results to equal the sorted list
                 this.setState({results: firstSort})
-                this.generatedEmployees = this.state.results;
-                console.log("This generatedEmployees = ", this.generatedEmployees);
             })
             .catch(err => console.log(err)) 
     }
+    
+    sortToggle = () => {
+        this.state.sort === "ascend" ? this.setState({...this.state, sort: "descend"}) : this.setState({...this.state, sort: "ascend"})
+    }
 
-    // refineResults = () => {
-    //     this.setState({
-    //         ...this.state,
-    //         results: (this.state.results.filter((item) => {
-    //             return ((item.name.first).includes(this.state.name) || (item.name.last.includes(this.state.name)))  
-    //         })
-    //     )}) 
-    //     console.log("the results after refineResults map are ", this.state.results);
-    // }
+    ascendSort = () => {
+        let ascendResults = (this.state.results).sort(function(a, b){
+        if(a.name.last < b.name.last) { return -1; }
+        if(a.name.last > b.name.last) { return 1; }
+        return 0})
+        this.setState({...this.state, results: ascendResults})
+    }
 
-    // sortChange = event => {
-    //     const sort = event.target.sort;
-    // }
+    descendSort = () => {
+            let descendResults = (this.state.results).sort(function(a, b){
+            if(b.name.last < a.name.last) { return -1; }
+            if(b.name.last > a.name.last) { return 1; }
+            return 0})
+            this.setState({...this.state, results: descendResults})
+        }
 
+    employeeSort = () => {
+        this.state.sort === "ascend" ? this.ascendSort() : this.descendSort()
+    }
+
+    //On load call the generateUsers function
     componentDidMount() {
         this.generateUsers();
     }
 
     handleInputChange = event => {
         const name = event.target.name;
-        const value = (event.target.value).trim();
+        const value = ((event.target.value).trim()).toLowerCase();
 
         this.setState({
           [name]: value,
-        //   results: (this.state.results.filter((item) => {
-        //     return ((item.name.first).includes(this.state.name) || (item.name.last.includes(this.state.name)))  
-        //         })
-        //     )
         });
         console.log("this.state after handleInputChange = ", this.state);
       };
@@ -68,6 +71,12 @@ class MainContainer extends React.Component {
         console.log("The state after handleFormSubmit = ", this.state)
       }
 
+    handleSort = event => {
+        event.preventDefault();
+        this.sortToggle()
+        .then(() => this.employeeSort())
+    }
+
     render(){
         return (
             <div>
@@ -75,7 +84,7 @@ class MainContainer extends React.Component {
                 <Form   name={this.state.name}
                         handleFormSubmit={this.handleFormSubmit}
                         handleInputChange={this.handleInputChange} />
-                <Table name={this.state.name} results={this.state.results} sort={this.state.sort}/>
+                <Table name={this.state.name} results={this.state.results} sort={this.state.sort} handleSort={this.handleSort}/>
                 {console.log("The state inside the render return is ", this.state)}
             </div>
         );
