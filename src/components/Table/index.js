@@ -24,11 +24,13 @@ function Table(props) {
                 .map((result, i)=> {return (
                     <tr key={i}>
                     <td>
+                        <div id="photoDiv" width="50px">
                         <img 
                             src={result.picture.large}
                             alt="{result.name.first + ' ' + result.name.last}"
                             width="50px"
                         />
+                        </div>
                     </td>
                     <td>{result.name.first}</td>
                     <td>{result.name.last}</td>
@@ -42,11 +44,13 @@ function Table(props) {
                 )}) : props.results.map((result, i) => (
                     <tr key={i}>
                     <td>
+                        <div id="photoDiv" width="50px">
                         <img 
                             src={result.picture.large}
                             alt="{result.name.first + ' ' + result.name.last}"
                             width="50px"
                         />
+                        </div>
                     </td>
                     <td>{result.name.first}</td>
                     <td>{result.name.last}</td>

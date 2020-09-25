@@ -17,3 +17,7 @@ img {
     border-radius: 25px;
     margin: 5px;
 }
+
+#photoDiv {
+    text-align: center;
+}
