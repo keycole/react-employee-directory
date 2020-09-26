@@ -14,24 +14,33 @@ An employee directory that can be viewed all at once, providing quick access to 
 
 ## Demo
 
-**Link to demo video:** To follow
+**Link to demo video:** https://drive.google.com/file/d/1qhfNV-lNBuuJeorZ6C7s3gX3JvZJoOQ2/view
 
-- DEMO GIF to follow.
+![Demo GIF](assets/readMeImages/demo.gif)
 
 ## Installation
-Under construction
+- npm i to install dependencies
+
+#### Publish to GitHub Pages
+
+- Please refer to this [React documentation](https://create-react-app.dev/docs/deployment/#github-pages) for how to publish your directory to GitHub Pages
+
+#### Publish to Heroku
+
+- Please refer to this [React documentation](https://create-react-app.dev/docs/deployment/#heroku) for how to publish your directory to Heroku
 
 ## Usage
 
 - This application can be used to search your employee (or personal) address book.
-- Search by using the search field.
-- Under construction: Search by sorting by last name.
+- The results update dynamically when you type in the search field.
+- Use the arrow toggle to sort by last name.
 
 ## Contributing
 
 - Fork the repository
-- Navigate to the folder containing app.js in the terminal and enter ```npm install``` to download dependencies
-- Add your stamp to the program's functionality and be sure to reach out with your update/improvements. I would like to see what you've done! 
+- Navigate to the folder containing app.js in the terminal and enter ```npm i``` to download dependencies
+- Add your stamp to the program's functionality and see the [Installation](#installation) section for links to how you can deploy to GitHub Pages or Heroku.
+- Be sure to reach out with your update/improvements. I would like to see what you've done! 
 
 ## License
 
