@@ -8,12 +8,13 @@ table {
 
 table th {
     font-weight: 800;
+    font-size: 1rem;
 }
 
 table td {
     border: 1px dashed gray;
-    /*font-weight: 600;*/
     text-align: left;
+    padding: 5px;
     width: fit-content;
 }
 

@@ -11,9 +11,9 @@ function Form(props) {
                  name="name"
                 type="text"
                 className="employeeSearch" placeholder="Name Here" />
-            <button className="employeeSearch"
+            {/* <button className="employeeSearch"
                 onClick={props.handleFormSubmit}
-                >Submit</button>
+                >Submit</button> */}
         </form>
     );
 }

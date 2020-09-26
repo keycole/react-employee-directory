@@ -78,7 +78,7 @@ class MainContainer extends React.Component {
             <div>
                 <Header />
                 <Form   name={this.state.name}
-                        handleFormSubmit={this.handleFormSubmit}
+                        // handleFormSubmit={this.handleFormSubmit}
                         handleInputChange={this.handleInputChange} />
                 <Table  name={this.state.name} 
                         results={this.state.results} 

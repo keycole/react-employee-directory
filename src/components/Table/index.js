@@ -1,20 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 import './style.css';
 
-function Icon({ sort, handleSort }) {
-    return sort === "ascend" ?
-        <FontAwesomeIcon icon={["fas", "arrow-circle-down"]} onClick={handleSort} />
-        : <FontAwesomeIcon icon={["fas", "arrow-circle-up"]} onClick={handleSort} />
-    // if(sort==="ascend"){
-    //     //return <i className="fas fa-arrow-circle-down" onClick={handleSort}></i>
-    //     return <FontAwesomeIcon icon={["fas", "arrow-circle-down"]} onClick={handleSort}/>
-    // } else {
-    //     return <FontAwesomeIcon icon={["fas", "arrow-circle-up"]} onClick={handleSort}/>
-    //     //<i className="fas fa-arrow-circle-up" onClick={handleSort}></i>
-    // }
-}
+// function Icon({ sort, handleSort }) {
+//     return sort === "ascend" ?
+//         <FontAwesomeIcon icon={["fas", "arrow-circle-down"]} onClick={handleSort} />
+//         : <FontAwesomeIcon icon={["fas", "arrow-circle-up"]} onClick={handleSort} />
+// }
 
 function Table(props) {
     console.log("The props inside Table = ", props);
@@ -31,10 +24,10 @@ function Table(props) {
                     <th>Face to a Name</th>
                     <th>First Name</th>
                     <th onClick={props.handleSort}>Last Name &nbsp;&nbsp;
-                    {/* {props.sort === "ascend" 
-                    ? <i className="fas fa-arrow-circle-down" onClick={props.handleSort}></i> 
-                    :  <i className="fas fa-arrow-circle-up" onClick={props.handleSort}></i>} */}
-                        <Icon sort={props.sort} handleSort={props.handleSort} />
+                    {props.sort === "ascend" 
+                    ? <FontAwesomeIcon icon={["fas", "arrow-circle-down"]} onClick={props.handleSort} /> 
+                    :  <FontAwesomeIcon icon={["fas", "arrow-circle-up"]} onClick={props.handleSort} />}
+                        {/* <Icon sort={props.sort} handleSort={props.handleSort} /> */}
                     </th>
                     <th>Email</th>
                     <th>Phone Number</th>
