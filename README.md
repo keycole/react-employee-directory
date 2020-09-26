@@ -16,7 +16,7 @@ An employee directory that can be viewed all at once, providing quick access to 
 
 **Link to demo video:** https://drive.google.com/file/d/1qhfNV-lNBuuJeorZ6C7s3gX3JvZJoOQ2/view
 
-![Demo GIF](assets/readMeImages/demo.gif)
+![Demo GIF](https://raw.githubusercontent.com/keycole/react-employee-directory/master/assets/readmeImages/demo.gif)
 
 ## Installation
 - npm i to install dependencies
